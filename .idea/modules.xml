@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/Automatizacion-Web.iml" filepath="$PROJECT_DIR$/.idea/Automatizacion-Web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/qa-lab-selenium/qa-lab-selenium.iml" filepath="$PROJECT_DIR$/qa-lab-selenium/qa-lab-selenium.iml" />
+    </modules>
+  </component>
+</project>

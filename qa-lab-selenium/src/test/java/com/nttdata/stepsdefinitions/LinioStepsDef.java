@@ -1,5 +1,6 @@
 package com.nttdata.stepsdefinitions;
 
+import com.nttdata.steps.InventorySteps;
 import com.nttdata.steps.LinioLoginSteps;
 import com.nttdata.steps.RaissaLoginSteps;
 import io.cucumber.java.After;
@@ -9,6 +10,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -21,6 +23,9 @@ public class LinioStepsDef {
 
     private LinioLoginSteps linioLoginSteps;
 
+    private InventorySteps inventorySteps(WebDriver driver){
+        return new InventorySteps(driver);
+    }
 
     @Before(order = 0)
     public void setUp(){
@@ -61,12 +66,16 @@ public class LinioStepsDef {
         screenShot();
     }
 
-    @And("valido mensaje de credenciales erroneas")
-    public void validoMensajeDeCredencialesErroneas() {
-    }
 
     public void screenShot(){
         byte[] evidencia = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
         this.scenario.attach(evidencia, "image/png", "evidencias");
+    }
+
+    @And("valido mensaje de credenciales erroneas {string}")
+    public void validoMensajeDeCredencialesErroneas(String expectedTitle) {
+        String title =  inventorySteps(driver).getTitle();
+        //prueba: validamos el título del error
+        Assertions.assertEquals(expectedTitle, title);
     }
 }
