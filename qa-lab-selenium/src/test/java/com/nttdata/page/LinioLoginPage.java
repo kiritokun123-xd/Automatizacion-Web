@@ -8,5 +8,5 @@ public class LinioLoginPage {
     public static By userInput = By.id("login_form_email");
     public static By passInput = By.id("login_form_password");
     public static By loginButton = By.xpath("//*[@id=\"login-form\"]/form/button");
-    public static By productsTitle = By.className("alert-text");
+    //public static By productsTitle = By.className("alert-text");
 }

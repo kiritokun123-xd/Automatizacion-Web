@@ -23,9 +23,6 @@ public class LinioStepsDef {
 
     private LinioLoginSteps linioLoginSteps;
 
-    private InventorySteps inventorySteps(WebDriver driver){
-        return new InventorySteps(driver);
-    }
 
     @Before(order = 0)
     public void setUp(){
@@ -74,8 +71,5 @@ public class LinioStepsDef {
 
     @And("valido mensaje de credenciales erroneas {string}")
     public void validoMensajeDeCredencialesErroneas(String expectedTitle) {
-        String title =  inventorySteps(driver).getTitle();
-        //prueba: validamos el título del error
-        Assertions.assertEquals(expectedTitle, title);
     }
 }
