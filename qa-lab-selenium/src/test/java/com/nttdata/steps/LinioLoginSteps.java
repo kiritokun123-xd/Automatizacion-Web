@@ -1,5 +1,6 @@
 package com.nttdata.steps;
 
+import com.nttdata.page.InventoryPage;
 import com.nttdata.page.LinioLoginPage;
 import com.nttdata.page.RaissaLoginPage;
 import org.openqa.selenium.WebDriver;
@@ -44,7 +45,52 @@ public class LinioLoginSteps {
      * Hacer click en el botón login
      */
     public void login(){
-        this.driver.findElement(LinioLoginPage.loginButton).click();
+        try{
+            this.driver.findElement(LinioLoginPage.loginButton).click();
+        }catch (Exception e){
+
+        }
+
+    }
+    public void bestClick(){
+        try{
+            this.driver.findElement(LinioLoginPage.bestButton).click();
+        }catch (Exception e){
+
+        }
+
+    }
+    public void productClick(){
+        try {
+            this.driver.findElement(LinioLoginPage.productButton).click();
+        }catch (Exception e){
+
+        }
+    }
+    public void carClick(){
+        try {
+            this.driver.findElement(LinioLoginPage.carButton).click();
+        }catch (Exception e){
+
+        }
+    }
+    public String getTitle(){
+        String title = "";
+        try {
+            title =  this.driver.findElement(LinioLoginPage.productsTitle).getText();
+        }catch (Exception e){
+
+        }
+        return title;
+    }
+    public String getMessageTitle(){
+        String titleM = "";
+        try {
+            titleM =  this.driver.findElement(LinioLoginPage.messageTitle).getText();
+        }catch (Exception e){
+
+        }
+        return titleM;
     }
 
 }

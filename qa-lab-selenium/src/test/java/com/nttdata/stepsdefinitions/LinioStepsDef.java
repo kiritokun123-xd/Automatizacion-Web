@@ -49,19 +49,26 @@ public class LinioStepsDef {
         screenShot();
     }
 
-    @When("ingreso mis usuario {string} y password {string} en Linio")
-    public void ingresoMisUsuarioYPasswordEnLinio(String user, String password) {
+    @When("ingreso mi usuario {string} y password {string} en Linio")
+    public void ingresoMiUsuarioYPasswordEnLinio(String user, String password) {
         linioLoginSteps = new LinioLoginSteps(driver);
         linioLoginSteps.typeUser(user);
         linioLoginSteps.typePassword(password);
         screenShot();
     }
 
-    @Then("hago click en boton inciar sesion")
+    @And("hago click en boton inciar sesion")
     public void hagoClickEnBotonInciarSesion() {
         linioLoginSteps.login();
         screenShot();
     }
+
+    @Then("valido que estoy logueado con usuario {string}")
+    public void validoQueEstoyLogueadoConUsuario(String name) {
+        linioLoginSteps.getTitle();
+        screenShot();
+    }
+
 
 
     public void screenShot(){
@@ -69,7 +76,27 @@ public class LinioStepsDef {
         this.scenario.attach(evidencia, "image/png", "evidencias");
     }
 
-    @And("valido mensaje de credenciales erroneas {string}")
-    public void validoMensajeDeCredencialesErroneas(String expectedTitle) {
+    @And("hago click en boton mejores calificados")
+    public void hagoClickEnBotonMejoresCalificados() {
+        linioLoginSteps.bestClick();
+        screenShot();
+    }
+
+    @And("hago click en un producto")
+    public void hagoClickEnUnProducto() {
+        linioLoginSteps.productClick();
+        screenShot();
+    }
+
+    @And("hago click en añadir carrito")
+    public void hagoClickEnAñadirCarrito() {
+        linioLoginSteps.carClick();
+        screenShot();
+    }
+
+    @And("valido que se añadió al carrito")
+    public void validoQueSeAñadióAlCarrito() {
+        linioLoginSteps.getMessageTitle();
+        screenShot();
     }
 }

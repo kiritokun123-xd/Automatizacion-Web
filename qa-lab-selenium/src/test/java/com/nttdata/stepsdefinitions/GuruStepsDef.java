@@ -67,9 +67,6 @@ public class GuruStepsDef {
         screenShot();
     }
 
-    @And("valido que estoy logueado correctamente")
-    public void validoQueEstoyLogueadoCorrectamente() {
-    }
 
 
     public void screenShot(){
